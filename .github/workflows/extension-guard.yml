@@ -1,0 +1,27 @@
+name: Extension guard
+
+on:
+  pull_request:
+    paths:
+      - "**/.vscode/extensions.json"
+      - "**/devcontainer.json"
+      - "**/.devcontainer.json"
+      - "**/*.code-workspace"
+      - ".github/jest-security.yml"
+
+permissions:
+  contents: read
+  pull-requests: write
+  security-events: write
+
+jobs:
+  extensions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      # Marketplace example uses @v1, which does not exist. 0.0.1 is this commit.
+      - uses: Jest-Test-Team/ide-extension@d56084f6c17d7fa4a203bf1bdec10cd2897c270b
+        with:
+          fail-on: high

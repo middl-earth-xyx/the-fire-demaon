@@ -1,0 +1,25 @@
+name: Vuln Sentinel
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      # v1.2.0. Dry-run and a single repo: this action can open issues and merge
+      # fix PRs across every repository the token can see when those limits are off.
+      - uses: BabyGrootCICD/cve_validator_patcher@e98480149a159318c30809301e68c3321ea65aba
+        with:
+          token: ${{ secrets.SENTINEL_TOKEN }}
+          mode: scan
+          dry-run: true
+          auto-merge: false
+          merge-without-checks: false
+          commit-results: false
+          include-forks: false
+          repos: ${{ github.repository }}
