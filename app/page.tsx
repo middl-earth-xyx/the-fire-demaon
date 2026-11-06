@@ -2,6 +2,8 @@ import { findings } from "../fixtures/findings";
 import { createEvaluator } from "../lib/jef";
 import { severityLabel, triageFinding, type Finding, type TriageResult } from "../lib/triage";
 
+export const dynamic = "force-dynamic";
+
 const SOURCE_LABEL = {
   gateway: "閘道 · rp_app",
   firmware: "韌體 · firmware-research-demo",
