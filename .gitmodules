@@ -1,0 +1,6 @@
+[submodule "external/rp_app"]
+	path = external/rp_app
+	url = https://github.com/dennislee928/rp_app.git
+[submodule "external/firmware-research-demo"]
+	path = external/firmware-research-demo
+	url = https://github.com/dennislee928/firmware-research-demo.git
