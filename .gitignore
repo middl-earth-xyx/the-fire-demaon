@@ -5,3 +5,5 @@ out
 .env
 .env.local
 *.log
+external/firmware-research-demo/
+external/rp_app/
